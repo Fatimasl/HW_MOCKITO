@@ -16,8 +16,14 @@ public class MoviePosterManager {
     }
     public MovieItem[] findLast(){
         int quantityOfItems = 5;
-        
-        MovieItem[] tmp = findLast(quantityOfItems);
+
+        if (items.length < quantityOfItems){
+            quantityOfItems = items.length;
+        }
+        MovieItem[] tmp = new MovieItem[quantityOfItems];
+        for (int i = 0; i < quantityOfItems; i++){
+            tmp[i] = items[items.length - 1 - i];
+        }
         return tmp;
     }
     public MovieItem[] findLast(int quantityOfItems){
